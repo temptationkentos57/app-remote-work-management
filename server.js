@@ -11,7 +11,9 @@ const io = new Server(server);
 const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/remote-work-management';
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    retryWrites: true,
+    w: 'majority'
 })
 .then(() => console.log(`Successfully connected to MongoDB at: ${mongoURI}`))
 .catch(err => console.error(`MongoDB connection error at ${mongoURI}:`, err));
