@@ -11,9 +11,7 @@ const io = new Server(server);
 const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/remote-work-management';
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
+    useUnifiedTopology: true
 })
 .then(() => console.log(`Successfully connected to MongoDB: ${mongoURI}`))
 .catch(err => console.error('MongoDB connection error:', err));
@@ -22,7 +20,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to the Remote Work Management Application');
 });
 
-io.on('connection', (socket) => {
+oi.on('connection', (socket) => {
     console.log('A new user has connected');
     socket.on('disconnect', () => {
         console.log('User has disconnected');
