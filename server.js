@@ -1,7 +1,7 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const http = require('http');
-const { Server } = require('socket.io');
+import express from 'express';
+import mongoose from 'mongoose';
+import http from 'http';
+import { Server } from 'socket.io';
 
 const app = express();
 const server = http.createServer(app);
