@@ -7,24 +7,24 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-// Kết nối tới MongoDB
+// Connect to MongoDB
 const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/remote-work-management';
 mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
-.then(() => console.log(`Kết nối đến MongoDB thành công: ${mongoURI}`))
-.catch(err => console.error('Lỗi kết nối MongoDB:', err));
+.then(() => console.log(`Successfully connected to MongoDB: ${mongoURI}`))
+.catch(err => console.error('MongoDB connection error:', err));
 
 app.get('/', (req, res) => {
-    res.send('Chào mừng đến với Ứng Dụng Quản Lý Công Việc Từ Xa');
+    res.send('Welcome to the Remote Work Management Application');
 });
 
 io.on('connection', (socket) => {
-    console.log('Một người dùng mới đã kết nối');
+    console.log('A new user has connected');
     socket.on('disconnect', () => {
-        console.log('Người dùng đã ngắt kết nối');
+        console.log('User has disconnected');
     });
 });
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-    console.log(`Server đang chạy tại http://localhost:${PORT}`);
+    console.log(`Server is running at http://localhost:${PORT}`);
 });
