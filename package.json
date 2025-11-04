@@ -1,6 +1,6 @@
 {
   "name": "app-remote-work-management",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ứng dụng quản lý công việc từ xa",
   "main": "server.js",
   "scripts": {
