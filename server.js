@@ -14,7 +14,7 @@ mongoose.connect(mongoURI, {
     useUnifiedTopology: true
 })
 .then(() => console.log(`Successfully connected to MongoDB at: ${mongoURI}`))
-.catch(err => console.error('MongoDB connection error:', err));
+.catch(err => console.error(`MongoDB connection error at ${mongoURI}:`, err));
 
 app.get('/', (req, res) => {
     res.send('Welcome to the Remote Work Management Application');
