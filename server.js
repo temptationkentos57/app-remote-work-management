@@ -13,7 +13,7 @@ mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-.then(() => console.log(`Successfully connected to MongoDB: ${mongoURI}`))
+.then(() => console.log(`Successfully connected to MongoDB at: ${mongoURI}`))
 .catch(err => console.error('MongoDB connection error:', err));
 
 app.get('/', (req, res) => {
