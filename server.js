@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to the Remote Work Management Application');
 });
 
-oi.on('connection', (socket) => {
+io.on('connection', (socket) => {
     console.log('A new user has connected');
     socket.on('disconnect', () => {
         console.log('User has disconnected');
