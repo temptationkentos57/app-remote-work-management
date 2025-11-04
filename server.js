@@ -8,7 +8,7 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 // Connect to MongoDB
-const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/remote-work-management';
+const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/remote_work_management';
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
